@@ -169,18 +169,26 @@ app.patch('/bookmark/:id', jsonParser, (req,res) => {
         return res.status(409).end();
     }
 
-    let body = req.body;
-    
-      let updatedBookmark = {
-        id: String(body.id),
-        title: String(body.title),
-        description: String(body.description),
-        url: String(body.url),
-        rating: parseInt(body.rating)
+    let body = {};
+
+    if(req.body.title){
+       body['title'] = req.body.title;
+      }
+
+      if(req.body.description){
+        body['description'] = req.body.description;
+      }
+
+      if(req.body.url){
+        body['url'] = req.body.url;
+      }
+
+      if(req.body.rating){
+        body['rating'] = req.body.rating;
       }
 
       Bookmarks
-        .updateBookmark(idBody, updatedBookmark)
+        .updateBookmark(idBody, body)
         .then( result => {
             if(!result){
                 res.statusMessage =  "The bookmark with this id was not found in the list";
