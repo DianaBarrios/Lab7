@@ -1,0 +1,54 @@
+
+TABLES = Collections
+ROWS = Documents
+
+//Display all databases
+show dbs
+
+CREATE DATABASE databaseName;
+
+CREATE TABLE tableName(
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL
+)
+INSERT INTO tableNameVALUES(123, "Marcel")
+
+//MONGO
+//create
+use databaseName
+
+//delete
+db.dropDatabase();
+
+//cretae Collections
+db.collectionName
+
+//
+db.collectionName.insert({id:123,name:"Marcel})
+
+SELECT *
+FROM tableName
+db.collectionName.find();
+//example
+db.bookmarks.find();
+db.bookmarks.find().pretty();
+
+//
+SELECT *
+FROM tableName
+WHERE condition
+db.collection.find({condition}).pretty();
+
+
+//UPDATE
+UPDATE tableName
+SET values
+WHERE condition
+db.collectionName.update({condition}, {$set:{values}})
+b.collectionName.updateOne({condition}, {$set:{values}})
+
+//delete
+DELETE
+FROM tableName
+WHERE condition
+db.collectionName.remove({condition})
