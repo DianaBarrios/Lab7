@@ -71,7 +71,7 @@ const Bookmarks = {
   },
   updateBookmark: function(bookmarkId, body) {
     return bookmarksCollection
-      .findOneAndUpdate({ id: bookmarkId }, { $set: body })
+      .update({ id: bookmarkId }, { $set: body })
       .then(updatedBookmark => {
         return updatedBookmark;
       })
