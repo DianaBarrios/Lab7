@@ -12,6 +12,8 @@ const TOKEN = '2abbf7c3-245b-404f-9473-ade729ed4653';
 const app = express();
 const jsonParser = bodyParser.json();
 
+app.use(express.static('public'));
+
 app.use(morgan('dev'));
 app.use(validateToken);
 
@@ -55,7 +57,7 @@ app.get( '/bookmarks', ( req, res ) => {
    Bookmarks
         .getAllBookmarks()
         .then( result => {
-            return res.status(201).json(result);
+            return res.status(200).json(result);
         })
         .catch(err => {
             res.statusMessage = "Something is wrong with the database. Try later";
