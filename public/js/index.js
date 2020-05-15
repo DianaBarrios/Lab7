@@ -106,6 +106,8 @@ function fetchCreateBookmark(title, description, link, rating) {
       throw new Error(response.statusText);
     })
     .then(responseJSON => {
+      fetchBookmarks();
+      /*
       let newBookmark = `<div id="${responseJSON.id}"> 
         <h3> ${responseJSON.title}</h3>
         <ul>
@@ -116,7 +118,7 @@ function fetchCreateBookmark(title, description, link, rating) {
           <li>Rating: ${responseJSON.rating} </li>
         </ul>
         </div>`;
-      results.innerHTML += newBookmark;
+      results.innerHTML += newBookmark;*/
     })
     .catch(err => {
       results.innerHTML = `<div><h4>Error: ${err.message} <h4></div>`;
@@ -143,7 +145,9 @@ function fetchDeleteBookmark(id) {
       throw new Error(response.statusText);
     })
     .then(responseJSON => {
-      $(`#${id}`).remove();
+      fetchBookmarks();
+      /*$(`#${id}`).remove();
+      */
     })
     .catch(err => {
       results.innerHTML = `<div><h4>Error: ${err.message} <h4></div>`;
