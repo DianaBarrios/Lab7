@@ -92,7 +92,7 @@ app.get( '/bookmark', ( req, res ) => {
 });
 
 app.post('/bookmarks', jsonParser, (req, res) => {
-    console.log("Adding a new student.");
+    console.log("Adding a new bookmark.");
     console.log("Body: ", req.body);
 
     let title = req.body.title;
@@ -127,6 +127,7 @@ app.post('/bookmarks', jsonParser, (req, res) => {
             //createdBookmark
         })
         .catch(err => {
+            console.log(err);
             res.statusMessage = "Something is wrong with the database. Try later";
             return res.status(500).end();
         })

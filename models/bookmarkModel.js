@@ -7,20 +7,16 @@ const bookmarksSchema = mongoose.Schema({
     unique: true
   },
   title: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   url: {
-    type: String,
-    required: true
+    type: String
   },
   rating: {
-    type: Number,
-    required: true
+    type: Number
   }
 });
 
@@ -60,7 +56,7 @@ const Bookmarks = {
   },
   deleteBookmark: function(bookmarkId) {
     return bookmarksCollection
-      .remove({ id: bookmarkId })
+      .deleteOne({ id: bookmarkId })
       .then(deletedBookmark => {
         return deletedBookmark;
       })
@@ -71,7 +67,7 @@ const Bookmarks = {
   },
   updateBookmark: function(bookmarkId, body) {
     return bookmarksCollection
-      .update({ id: bookmarkId }, { $set: body })
+      .updateOne({ id: bookmarkId }, { $set: body })
       .then(updatedBookmark => {
         return updatedBookmark;
       })

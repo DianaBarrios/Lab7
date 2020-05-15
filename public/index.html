@@ -1,35 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Bookmarks App</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="./css/index.css" />
-    </head>
-    <body>
-        <h1>Bookmarks App</h1>
-        <form class="get-bookmarks-form">
-            <label>Click on the button to retrieves the list of bookmarks</label>
-            <button type="submit">
-                Search
-            </button>
-        </form>
-        <form class="add-bookmark-form">
-            <label for="bookmarkName">
-                Name:
-            </label>
-            <input>
-            </input>
-            <label></label>
-        </form>
-        <div class="results">
+  <head>
+    <title>Bookmarks App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  </head>
+  <body>
+    <h1>Bookmarks App</h1>
 
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-6" id="forms-div">
+                    <!--
+                        <form class="get-bookmarks-form">
+                        <label
+                            >Click on the button to retrieves the list of bookmarks</label
+                        >
+                        <button type="submit">
+                            Search
+                        </button>
+                    </form>
+                    -->
+                    
+                    <h2>Search bookmark by title</h2>
+                    <form class="get-bookmark-by-title-form">
+                        <div class="form-group">
+                            <label for="bookmarkTitle">Title</label>
+                            <input id="bookmarkTitle" type="text" class="form-control" />
+                        </div>
+                        <button type="submit">
+                            Search
+                        </button>
+                    </form>
+                
+                    <h2>Create a new bookmark</h2>
+                    <form class="add-bookmark-form">
+                        <div class="form-group">
+                            <label for="bookmarkTitle">
+                            Title:
+                            </label>
+                            <input id="newBookmarkTitle" type="text" class="form-control" />
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="bookmarkDescription">
+                            Description:
+                            </label>
+                            <input id="newBookmarkDescription" type="text" class="form-control" />
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="bookmarkURL">
+                            URL:
+                            </label>
+                            <input id="newBookmarkurl" type="text" class="form-control" />
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="bookmarkRating">
+                            Rating:
+                            </label>
+                            <input id="newBookmarkRating" type="text" class="form-control" />
+                        </div>
+                        <button type="submit">
+                            Create
+                        </button>
+                    </form>
+                
+                    <h2>Delete a bookmark by ID</h2>
+                    <form class="delete-bookmark-form">
+                        <div class="form-group">
+                            <label for="deleteBookmarkID">
+                            ID:
+                            </label>
+                            <input id="deleteBookmarkID" type="text" class="form-control" />
+                        </div>
+                        <button type="submit">
+                            Delete
+                        </button>
+                    </form>
+                
+                    <h2>Edit a bookmark</h2>
+                    <form class="update-bookmark-form">
+                    <div class="form-group">
+                        <label for="bookmarkID">
+                            ID:
+                        </label>
+                        <input id="updateBookmarkID" type="text" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="bookmarkTitle">
+                            Title:
+                        </label>
+                        <input id="updateBookmarkTitle" type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookmarkDescription">
+                            Description:
+                        </label>
+                        <input id="updateBookmarkDescription" type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookmarkURL">
+                            URL:
+                        </label>
+                        <input id="updateBookmarkURL" type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookmarkRating">
+                            Rating:
+                        </label>
+                        <input id="updateBookmarkRating" type="text" class="form-control" >
+                    </div>
+                    <button type="submit">
+                        Edit
+                    </button>
+                    </form>
+                </div>
+                
+                <div class="col-lg-6" id="results-div">
+                    <h2>Results</h2>
+                    <div class="results"></div>
+                </div>
         </div>
-        
-        <div class="error-handling">
+    </div>
 
-        </div>
 
-        <script type="text/javascript" src="./js/index.js"></script>
-    </body>
+    <script type="text/javascript" src="./js/index.js"></script>
+  </body>
 </html>
