@@ -7,16 +7,20 @@ const bookmarksSchema = mongoose.Schema({
     unique: true
   },
   title: {
-    type: String
+    type: String,
+    required: true
   },
   description: {
-    type: String
+    type: String,
+    required: true
   },
   url: {
-    type: String
+    type: String,
+    required: true,
   },
   rating: {
-    type: Number
+    type: Number,
+    required: true,
   }
 });
 
