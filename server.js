@@ -8,6 +8,7 @@ const { Bookmarks } = require('./models/bookmarkModel')
 
 const uuid = require ('uuid');
 const TOKEN = '2abbf7c3-245b-404f-9473-ade729ed4653';
+const {DATABASE_URL, PORT} = require( './config' );
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -206,7 +207,7 @@ app.patch('/bookmark/:id', jsonParser, (req,res) => {
         })
 });
 
-app.listen( 8080, () => {
+app.listen( PORT, () => {
     console.log( "This server is running on port 8080" );
     new Promise((resolve,reject) => {
         const settings = {
@@ -214,8 +215,9 @@ app.listen( 8080, () => {
             useUnifiedTopology: true,
             useCreateIndex: true
         }
-        mongoose.connect('mongodb://localhost/bookmarksdb',settings, (err) => {
+        mongoose.connect(DATABASE_URL,settings, (err) => {
             if(err){
+                console.log("Something went wrong");
                 return reject(err);
             } else{
                 console.log("Database connected successfully");
